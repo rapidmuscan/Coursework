@@ -1,4 +1,8 @@
 ﻿  Coursework.cpp
+<<<<<<< HEAD
 H:\Gt\Coursework\Coursework\Coursework\Coursework.cpp(28,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 H:\Gt\Coursework\Coursework\Coursework\Coursework.cpp(61,14): warning C4553:  '==': result of expression not used; did you intend '='?
   Coursework.vcxproj -> H:\Gt\Coursework\Coursework\x64\Debug\Coursework.exe
+=======
+  Coursework.vcxproj -> C:\Users\alsab\Documents\Coursework\Coursework\x64\Debug\Coursework.exe
+>>>>>>> 010ce585aae101ebd3e5bc7c8b0fb088bff256ae
