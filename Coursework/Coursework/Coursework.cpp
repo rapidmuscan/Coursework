@@ -50,6 +50,10 @@ int main()
 
 	Generator();
 
+
+
+
+
 	ifstream Myfile("text.txt");
 	for (int row = 0; row < arraysize; row++) {
 		for (int column = 0; column < arraysize; column++) {
@@ -58,6 +62,7 @@ int main()
 		}
 		cout << endl;
 	}
+	
 	Myfile.close();
 
 	return 0;
