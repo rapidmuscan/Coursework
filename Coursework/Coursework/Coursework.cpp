@@ -4,187 +4,197 @@
 #include <vector>
 #include <algorithm>
 #include <time.h>
+#include "puzzleGen.h"
 
 using namespace std;
-const int arraysize = 4;
-int copies = 15;
 
 
-class Number
-{
-public:
-	Number(int arra[arraysize][arraysize], int val);
-	~Number();
-	int arr[arraysize][arraysize];
-	int checker();
-	int value;
-	int a = 0;
-	int b = 0;
-	int c = 0;
-	int d = 0;
-	int e = 0;
-	int f = 0;
-	int g = 0;
-	int h = 0;
-	int i = 0;
-	int k = 0;
-	int p = 0;
-	int m = 0;
-	int n = 0;
-	int v = 0;
-	int x = 0;
-	int z = 0;
 
-private:
 
-};
 
-Number::Number(int arra[arraysize][arraysize], int val)
-{
-	for (size_t i = 0; i < arraysize; i++)
-	{
-		for (size_t j = 0; j < arraysize; j++)
-		{
-			arr[i][j] = arra[i][j];
-		}
-	}
-	value = val;
-}
+//this is random generator that puts 15 puzzles in to a file 
 
-Number::~Number()
-{
-}
 
-int Number::checker()
-{
-	if (value == arr[0][0]) a = 1;
-	if (value == arr[0][1]) b = 1;
-	if (value == arr[0][2]) c = 1;
-	if (value == arr[0][3]) d = 1;
-	if (value == arr[1][0]) e = 1;
-	if (value == arr[1][1]) f = 1;
-	if (value == arr[1][2]) g = 1;
-	if (value == arr[1][3]) h = 1;
-	if (value == arr[2][0]) i = 1;
-	if (value == arr[2][1]) k = 1;
-	if (value == arr[2][2]) p = 1;
-	if (value == arr[2][3]) m = 1;
-	if (value == arr[3][0]) n = 1;
-	if (value == arr[3][1]) v = 1;
-	if (value == arr[3][2]) x = 1;
-	if (value == arr[3][3]) z = 1;
 
-	if ((a + b + c + d + e + f + g + h + i + k + p + m + n + v + x + z) == 16)
-	{
-		return 1;
-	}
-	return 0;
-}
 
-int check(int arr[arraysize][arraysize], int value, int curentr, int currentc)
-{
-	int curplace = ((curentr * arraysize) + currentc);
+//moves that i am doing
+//void up(vector<int>& myvector, unsigned int &position)
+//{
+//	myvector[position] = myvector[position - arraysize];
+//	myvector[position - arraysize] = 0;
+//	position -= arraysize;
+//}
+//
+//void down(vector<int>& myvector, unsigned int &position)
+//{
+//	myvector[position] = myvector[position + arraysize];
+//	myvector[position + arraysize] = 0;
+//	position += arraysize;
+//}
+//
+//void right(vector<int>& myvector, unsigned int &position)
+//{
+//	myvector[position] = myvector[position + 1];
+//	myvector[position + 1] = 0;
+//	position += 1;
+//}
+//
+//void left(vector<int>& myvector, unsigned int &position)
+//{
+//	myvector[position] = myvector[position - 1];
+//	myvector[position - 1] = 0;
+//	position -= 1;
+//}
+//
+//void print(vector<int> myvector)
+//{
+//	system("cls");
+//	for (int i = 0; i < (arraysize * arraysize); i++) {
+//		cout << myvector[i] << " ";
+//		if (i == 3 || i == 7 || i == 11) cout << endl;
+//	}
+//}
+//
+//
+//void circle(vector<int>& myvector, unsigned int& position,int number)//look at the added pictures
+//{	
+//	for (int i = 0; i < number; i++){
+//		up(myvector, position);
+//	}
+//	
+//	for (int i = 0; i < number; i++){
+//		left(myvector, position);
+//	}
+//
+//	for (int i = 0; i < number; i++){
+//		down(myvector, position);
+//	}
+//
+//	for (int i = 0; i < number; i++){
+//		right(myvector, position);
+//	}
+//	
+//}
+//
+//void refresh(vector<int>& myvector, unsigned int& position)//look at the added pictures 
+//{
+//	up(myvector, position);
+//	for (int i = 0; i < arraysize - 2; i++ )left(myvector, position);
+//	up(myvector, position);
+//	for (int i = 0; i < arraysize - 2; i++)right(myvector, position);
+//	up(myvector, position);
+//	for (int i = 0; i < arraysize - 1; i++)left(myvector, position);
+//	for (int i = 0; i < arraysize - 1; i++)down(myvector, position);
+//	for (int i = 0; i < arraysize - 1; i++)right(myvector, position);
+//}
+//
+//void checkerofparts(vector<int> myvector, int& combin, int& newval)
+//{
+//	vector<int> datavector;
+//	//read and check
+//	int ch = 0;
+//	int same = 0;
+//	ifstream Myfile("data.txt");
+//	for (int j = 0; j < combin; j++) {
+//		for (int i = 0; i < (arraysize * arraysize); i++) {
+//			int input;
+//			Myfile >> input; // puting everything in to a vector
+//			datavector.push_back(input);
+//			if (myvector[i] == datavector[i])ch++;
+//		}
+//		if (ch == (arraysize * arraysize))
+//		{
+//			same++;
+//		}
+//		ch = 0;
+//	}
+//	Myfile.close();
+//
+//	if (same == 0)
+//	{
+//		//input
+//		ofstream MyFile;
+//		MyFile.open("data.txt", ios::app);
+//		for (size_t i = 0; i < (arraysize * arraysize); i++)
+//		{
+//			MyFile << myvector[i] << " ";
+//		}
+//		MyFile << endl;
+//		MyFile.close();
+//		combin++;
+//		newval++;
+//	}
+//	
+//}
 
-	vector<int> myvector;
 
-	for (int row = 0; row < arraysize; row++) 
-		for (int column = 0; column < arraysize; column++) 
-			myvector.push_back(arr[row][column]);
-	
-	for (int i = 0; i < curplace; i++) if (value == myvector[i]) return 0;
-
-	if (value == 0) return 0;
-	
-	
-	return 1;
-}
-
-void Generator ()
-{
-	int arr[arraysize][arraysize];
-	ofstream MyFile("text.txt");
-	for (size_t i = 0; i < copies; i++) {
-		for (int i = 0; i < arraysize; i++)
-			for (int j = 0; j < arraysize; j++) {
-				arr[i][j] = rand() % 20;
-
-				while (check(arr, arr[i][j], i, j) == 0) arr[i][j] = 1 + rand() % 19;
-
-				arr[3][3] = 0;
-
-				MyFile << arr[i][j] << " ";
-
-				if (j == 3) MyFile << endl;
-
-			}
-		MyFile << endl;
-	}
-	MyFile.close();
-}
-
-void print(int arr[arraysize][arraysize])
-{
-	for (int row = 0; row < arraysize; row++) {
-		for (int column = 0; column < arraysize; column++) {
-			cout << arr[row][column] << " ";
-		}
-		cout << endl;
-	}
-}
-
-int test(int** arr[arraysize][arraysize])
-{
-
-}
 
 int main()
 {
-	int arr[arraysize][arraysize];
-	int currentr = 3;
-	int currentc = 3;
-	Generator();
+	int size = 4;
+	int cop = 10;
+	int max = 20;
+	puzzleGen obj(size,cop,max);
+	obj.Generator();
+
+	//puzzle obj;
+	//int combin = 0;
+	//vector<int> myvector;
+	//unsigned int position = 15;
+	////Generator();
+	//int newval = 0;
 
 
-	ifstream Myfile("text.txt");
-	for (int row = 0; row < arraysize; row++) {
-		for (int column = 0; column < arraysize; column++) {
-			Myfile >> arr[row][column];
-			cout << arr[row][column] << " ";
-		}
-		cout << endl;
-	}
-	Myfile.close();
+	//ifstream Myfile("text.txt"); 
+	//for (int i = 0; i < (arraysize*arraysize); i++) {
+	//	int input;
+	//	Myfile >> input; // puting everything in to a vector
+	//	myvector.push_back(input);
+	//	cout << myvector[i] << " ";
+	//	if (i == 3 || i == 7 || i == 11) cout << endl;
+	//}
+	//Myfile.close();
+	//cout << endl;
 
-	int t = 0;
-	test(&arr);
-	/*while (t != 4)
-	{
-		system("cls");
-		print(arr);
-		arr[currentr][currentc] = arr[currentr - 1][currentc];
-		arr[currentr - 1][currentc] = 0;
-		currentr -= 1;
+	//
+	//
+	//
 
-		system("cls");
-		print(arr);
-		arr[currentr][currentc] = arr[currentr][currentc - 1];
-		arr[currentr][currentc - 1] = 0;
-		currentc -= 1;
+	//int t = 0;
+	////I am trying to find all combinations oviusly it is wrong
+	//for (size_t f = 0; f < 15; f++)
+	//{
+	//	for (size_t k = 0; k < 11; k++)
+	//	{
+	//		for (size_t i = 0; i < 7; i++)
+	//		{
+	//			for (size_t j = 0; j < 3; j++)
+	//			{
+	//				circle(myvector, position, 1);
+	//				checkerofparts(myvector,combin, newval);
+	//				t++;
+	//			}
+	//			circle(myvector, position, 2);
+	//			print(myvector);
+	//		}
+	//		circle(myvector, position, 3);
+	//		print(myvector);
+	//	}
+	//	refresh(myvector, position);
+	//	print(myvector);
+	//}
+	//
 
-		system("cls");
-		print(arr);
-		arr[currentr][currentc] = arr[currentr + 1][currentc];
-		arr[currentr + 1][currentc] = 0;
-		currentr += 1;
-		
-		system("cls");
-		print(arr);
-		arr[currentr][currentc] = arr[currentr][currentc + 1];
-		arr[currentr][currentc + 1] = 0;
-		currentc += 1;
 
 
-	}*/
+
+
+
+
+	//
+	//	cout << endl;
+	//	cout << newval << endl;
+	//	cout << t;
 
 
 	
