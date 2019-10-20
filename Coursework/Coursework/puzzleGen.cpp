@@ -18,9 +18,10 @@ void puzzleGen::Generator()
 {
 	srand(time(0));
 	ofstream MyFile("text.txt");
-	for (size_t i = 0; i < cop; i++) {
+	MyFile << cop << endl;
+	for (size_t l = 0; l < cop; l++) {
 		vector<int> Genvector;
-		for (size_t i = 0; i < (size * size); i++)
+		for (size_t f = 0; f < (size * size); f++)
 		{
 			Genvector.push_back(0);
 		}
@@ -50,30 +51,32 @@ void puzzleGen::Generator()
 
 void puzzleGen::ManualInput()
 {
-	int copies = 2;
-	int puzzsize = 2;
-	cout << "Put 15 numbers from 1 to 20 :" << endl;
+	cout << "Put "<< (size * size) - 1 <<" numbers from 1 to " << maxval << " :" << endl;
 	srand(time(0));
 	ofstream MyFile("text.txt");
-	for (size_t i = 0; i < copies; i++) {
-		vector<int> Genvector{ 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-		for (int i = 0; i < ((puzzsize * puzzsize)); i++) {
+	MyFile << cop << endl;
+	for (size_t l = 0; l < cop; l++) {
+		vector<int> Genvector;
+		for (int f = 0; f < (size * size); f++)	Genvector.push_back(0);
+		cout << "New puzzle" << endl;
+		for (int i = 0; i < (((size * size)) - 1); i++) {
 			int chek = 0;
-			Genvector[i] = 1 + rand() % 19;
+			cin >> Genvector[i];
 			while (chek != 1)
 			{
 				int m = 0;
 				for (int j = 0; j < i; j++) {
 					if (Genvector[i] == Genvector[j]) {
-						Genvector[i] = 1 + rand() % 19;
+						cout << "Enter a value from 1 to " << maxval << "And do not repeat" << endl ;
+						cin >> Genvector[i];
 						m++;
 					}
 				}
 				if (m == 0) chek = 1;
 			}
-			Genvector[15] = 0;
+			Genvector[(size * size) - 1] = 0;
 			MyFile << Genvector[i] << " ";
-			if (i == 3 || i == 7 || i == 11) MyFile << endl;
+			if ((((i + 2) % size) == true)) MyFile << endl;
 		}
 		MyFile << endl;
 		MyFile << endl;

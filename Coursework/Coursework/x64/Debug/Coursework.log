@@ -1,2 +1,4 @@
-﻿  Coursework.cpp
-  Coursework.vcxproj -> H:\Gt\Coursework\Coursework\x64\Debug\Coursework.exe
+﻿  puzzlesolve.cpp
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\puzzlesolve.cpp(23,6): warning C4805: ==: небезопасное смешение типа "int" и типа "bool" в операции
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\puzzlesolve.cpp(40,7): warning C4805: ==: небезопасное смешение типа "int" и типа "bool" в операции
+  Coursework.vcxproj -> C:\Users\alsab\Documents\Coursework\Coursework\x64\Debug\Coursework.exe
