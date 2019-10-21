@@ -16,7 +16,7 @@ puzzleGen::puzzleGen(int a, int b, int c)
 
 void puzzleGen::Generator()
 {
-	srand(time(0));
+	//srand(time(0));
 	ofstream MyFile("text.txt");
 	MyFile << cop << endl;
 	for (size_t l = 0; l < cop; l++) {

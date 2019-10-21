@@ -18,11 +18,13 @@ private:
 	void circle(int number);
 	void checkerofparts();
 	void refresh();
+	void refresh2();
 	unsigned int cop;
 	unsigned int size;
 	unsigned int position;
 	vector<unsigned int> myvector;
 	unsigned int combin;
+	unsigned int newcombin;
 };
 
 #endif // !PUZZLESOLVE_H
