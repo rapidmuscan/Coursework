@@ -1,4 +1,5 @@
 ﻿  Coursework.cpp
+<<<<<<< HEAD
   puzzlesolve.cpp
 H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(22,20): warning C4018:  '<': signed/unsigned mismatch
 H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(24,6): warning C4805:  '==': unsafe mix of type 'unsigned int' and type 'bool' in operation
@@ -14,3 +15,12 @@ H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(137,20): warning C4018:  
   Generating Code...
 H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(144,20): warning C4018:  '<': signed/unsigned mismatch
   Coursework.vcxproj -> H:\Gt\Coursework\Coursework\x64\Debug\Coursework.exe
+=======
+<<<<<<< HEAD
+H:\Gt\Coursework\Coursework\Coursework\Coursework.cpp(28,12): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+H:\Gt\Coursework\Coursework\Coursework\Coursework.cpp(61,14): warning C4553:  '==': result of expression not used; did you intend '='?
+  Coursework.vcxproj -> H:\Gt\Coursework\Coursework\x64\Debug\Coursework.exe
+=======
+  Coursework.vcxproj -> C:\Users\alsab\Documents\Coursework\Coursework\x64\Debug\Coursework.exe
+>>>>>>> 010ce585aae101ebd3e5bc7c8b0fb088bff256ae
+>>>>>>> master

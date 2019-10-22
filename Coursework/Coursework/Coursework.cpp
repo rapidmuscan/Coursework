@@ -29,6 +29,48 @@ int main()
 
 	
 
+<<<<<<< HEAD
+=======
+				if (j == 3) MyFile << endl;
+
+			}
+		MyFile << endl;
+	}
+	MyFile.close();
+}
+
+
+int main()
+{
+	int arr[arraysize][arraysize];
+
+	Generator();
+
+
+
+
+
+	ifstream Myfile("text.txt");
+	
+		for (int row = 0; row < arraysize; row++) {
+			for (int column = 0; column < arraysize; column++) {
+				Myfile >> arr[row][column];
+				cout << arr[row][column] << " ";
+			}
+			cout << endl;
+		}
+<<<<<<< HEAD
+		cout << endl;
+	}
+	
+=======
+		
+		
+		
+		
+>>>>>>> 010ce585aae101ebd3e5bc7c8b0fb088bff256ae
+	Myfile.close();
+>>>>>>> master
 	
 	return 0;
 }
