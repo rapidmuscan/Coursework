@@ -19,19 +19,21 @@ void puzzleGen::Generator()
 	//srand(time(0));
 	ofstream MyFile("text.txt");
 	MyFile << cop << endl;
+	unsigned long long percentdone = 0;
+	unsigned long long continues = 0;
 	for (size_t l = 0; l < cop; l++) {
-		vector<int> Genvector;
+		vector<unsigned long long> Genvector;
 		for (size_t f = 0; f < (size * size); f++)
 		{
 			Genvector.push_back(0);
 		}
-		for (int i = 0; i < ((size * size)); i++) {
-			int chek = 0;
+		for (unsigned long long i = 0; i < ((size * size)); i++) {
+			unsigned long long chek = 0;
 			Genvector[i] = 1 + rand() % (maxval - 1);
 			while (chek != 1)
 			{
-				int m = 0;
-				for (int j = 0; j < i; j++) {
+				unsigned long long m = 0;
+				for (unsigned long long j = 0; j < i; j++) {
 					if (Genvector[i] == Genvector[j]) {
 						Genvector[i] = 1 + rand() % (maxval - 1);
 						m++;
@@ -42,9 +44,14 @@ void puzzleGen::Generator()
 			Genvector[(size*size)-1] = 0;
 			MyFile << Genvector[i] << " ";
 			if ((((i + 2) % size) == true)) MyFile << endl;
+			continues++;
+			percentdone = ((continues * 100) / ((cop * (size * size))));
 		}
+		system("cls");
+		cout << "Generator progress: " << percentdone << "%" << endl;
 		MyFile << endl;
 		MyFile << endl;
+		
 	}
 	MyFile.close();
 }

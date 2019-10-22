@@ -1,40 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><DEFECTS><DEFECT>
     <SFA>
-      <FILEPATH>C:\Users\alsab\Documents\Coursework\Coursework\Coursework\</FILEPATH>
-      <FILENAME>puzzleGen.cpp</FILENAME>
-      <LINE>24</LINE>
-      <COLUMN>31</COLUMN>
+      <FILEPATH>H:\Gt\Coursework\Coursework\Coursework\</FILEPATH>
+      <FILENAME>puzzlesolve.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>13</COLUMN>
     </SFA>
-    <DEFECTCODE>26451</DEFECTCODE>
-    <DESCRIPTION>Арифметическое переполнение: использование оператора "*" на байтовом значении 4 и приведение результата к байтовому значению 8. Приведите значение к более широкому типу перед вызовом оператора "*", чтобы избежать переполнения (io.2).</DESCRIPTION>
-    <FUNCTION>puzzleGen::Generator</FUNCTION>
-    <DECORATED>?Generator@puzzleGen@@QEAAXXZ</DECORATED>
-    <FUNCLINE>17</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\alsab\Documents\Coursework\Coursework\Coursework\</FILEPATH>
-      <FILENAME>puzzleGen.cpp</FILENAME>
-      <LINE>42</LINE>
-      <COLUMN>18</COLUMN>
-    </SFA>
-    <DEFECTCODE>26451</DEFECTCODE>
-    <DESCRIPTION>Арифметическое переполнение: использование оператора "*" на байтовом значении 4 и приведение результата к байтовому значению 8. Приведите значение к более широкому типу перед вызовом оператора "*", чтобы избежать переполнения (io.2).</DESCRIPTION>
-    <FUNCTION>puzzleGen::Generator</FUNCTION>
-    <DECORATED>?Generator@puzzleGen@@QEAAXXZ</DECORATED>
-    <FUNCLINE>17</FUNCLINE>
-    <PATH></PATH>
-  </DEFECT><DEFECT>
-    <SFA>
-      <FILEPATH>C:\Users\alsab\Documents\Coursework\Coursework\Coursework\</FILEPATH>
-      <FILENAME>puzzleGen.cpp</FILENAME>
-      <LINE>78</LINE>
-      <COLUMN>19</COLUMN>
-    </SFA>
-    <DEFECTCODE>26451</DEFECTCODE>
-    <DESCRIPTION>Арифметическое переполнение: использование оператора "*" на байтовом значении 4 и приведение результата к байтовому значению 8. Приведите значение к более широкому типу перед вызовом оператора "*", чтобы избежать переполнения (io.2).</DESCRIPTION>
-    <FUNCTION>puzzleGen::ManualInput</FUNCTION>
-    <DECORATED>?ManualInput@puzzleGen@@QEAAXXZ</DECORATED>
-    <FUNCLINE>52</FUNCLINE>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'puzzlesolve::cop' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>puzzlesolve::{ctor}</FUNCTION>
+    <DECORATED>??0puzzlesolve@@QEAA@_K@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>puzzlesolve::cop</targetSymbol>
+    </ADDITIONALINFO>
     <PATH></PATH>
   </DEFECT></DEFECTS>

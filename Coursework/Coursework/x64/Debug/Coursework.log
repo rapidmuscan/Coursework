@@ -1,14 +1,6 @@
 ﻿  puzzlesolve.cpp
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(26,20): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(28,6): warning C4805:  '==': unsafe mix of type 'unsigned int' and type 'bool' in operation
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(40,21): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(45,7): warning C4805:  '==': unsafe mix of type 'unsigned int' and type 'bool' in operation
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(110,20): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(111,21): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(137,20): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(139,20): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(141,20): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(142,20): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(143,20): warning C4018:  '<': signed/unsigned mismatch
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(214,20): warning C4018:  '<': signed/unsigned mismatch
+H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(21,6): warning C4805:  '==': unsafe mix of type 'unsigned __int64' and type 'bool' in operation
+H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(38,7): warning C4805:  '==': unsafe mix of type 'unsigned __int64' and type 'bool' in operation
+H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(98,7): warning C4805:  '==': unsafe mix of type 'unsigned __int64' and type 'bool' in operation
+H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(109,24): warning C4267:  'argument': conversion from 'size_t' to 'int', possible loss of data
   Coursework.vcxproj -> H:\Gt\Coursework\Coursework\x64\Debug\Coursework.exe

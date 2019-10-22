@@ -8,22 +8,15 @@
 
 
 
-puzzlesolve::puzzlesolve(int a)
+puzzlesolve::puzzlesolve(unsigned long long a)
 {
-	size = a;
-	position = (size * size) - 1;
-	combin = 0;
-	newcombin = 0;
+	size = a;	
 	continusrows = 0;
-	revcontinusrows = 0;
-	continuscol = 0;
-	revcontinuscol = 0;
 }
 
 void puzzlesolve::print()
 {
-	system("cls");
-	for (int i = 0; i < (size * size); i++) {
+	for (unsigned long long i = 0; i < (size * size); i++) {
 		cout << myvector[i] << " ";
 		if ((((i + 2) % size) == true)) cout << endl;
 	}
@@ -36,9 +29,9 @@ void puzzlesolve::printfromfile()
 	cout << cop << endl;
 	for (size_t i = 0; i < cop; i++)
 	{
-		vector<int> pvector;
-		for (int i = 0; i < (size * size); i++) {
-			int input;
+		vector<unsigned long long> pvector;
+		for (unsigned long long i = 0; i < (size * size); i++) {
+			unsigned long long input;
 			Myfile >> input; // puting everything in to a vector
 			pvector.push_back(input);
 			cout << pvector[i] << " ";
@@ -51,194 +44,80 @@ void puzzlesolve::printfromfile()
 	cout << endl;
 }
 
-void puzzlesolve::up()
+
+void puzzlesolve::independentcontnum(int a)
 {
-	myvector[position] = myvector[position - size];
-	myvector[position - size] = 0;
-	position -= size;
-}
-
-void puzzlesolve::down()
-{
-	myvector[position] = myvector[position + size];
-	myvector[position + size] = 0;
-	position += size;
-}
-
-void puzzlesolve::right()
-{
-	myvector[position] = myvector[position + 1];
-	myvector[position + 1] = 0;
-	position += 1;
-}
-
-void puzzlesolve::left()
-{
-	myvector[position] = myvector[position - 1];
-	myvector[position - 1] = 0;
-	position -= 1;
-}
-
-void puzzlesolve::circle(int number)//look at the added pictures
-{
-	for (int i = 0; i < number; i++) {
-		up();
-	}
-
-	for (int i = 0; i < number; i++) {
-		left();
-	}
-
-	for (int i = 0; i < number; i++) {
-		down();
-	}
-
-	for (int i = 0; i < number; i++) {
-		right();
-	}
-}
-
-void puzzlesolve::checkerofparts()
-{
-	vector<int> datavector;
-	//read and check
-	int ch = 0;
-	int same = 0;
-	ifstream Myfile("data.txt");
-	
-	for (size_t f = 0; f < (size * size); f++)	datavector.push_back(0);
-	for (int j = 0; j < combin; j++) {
-		for (int i = 0; i < (size * size); i++) {	
-			Myfile >> datavector[i]; // puting everything in to a vector
-			if (myvector[i] == datavector[i])ch++;
-		}
-		if (ch == (size * size))same++;		
-		ch = 0;
-	}
-	Myfile.close();
-	if (same == 0) {
-		//input
-		ofstream MyFile;
-		MyFile.open("data.txt", ios::app);
-		for (size_t i = 0; i < (size * size); i++) MyFile << myvector[i] << " ";
-		MyFile << endl;
-		MyFile.close();
-		combin++;
-		newcombin++;
-		checkcontinusrows();
-	}
-	
-}
-
-void puzzlesolve::refresh()
-{
-	up();
-	for (int i = 0; i < size - 2; i++ )left();
-	up();
-	for (int i = 0; i < size - 2; i++)right();
-	up();
-	for (int i = 0; i < size - 1; i++)left();
-	for (int i = 0; i < size - 1; i++)down();
-	for (int i = 0; i < size - 1; i++)right();
-}
-
-void puzzlesolve::checkcontinusrows()
-{
-	for (size_t j = 0; j < size; j++)
+	for (unsigned long long i = 0; i < ((size * size) - (a - 1)); i++)
 	{
-		int c = 0;
-		for (size_t i = 0; i < (size - 1); i++)
+		if (myvector[i] + (a - 1) == myvector[i + (a - 1)])
 		{
-			if ((myvector[(j * size) + i] + 1) == myvector[(j * size) + i + 1]) 
-			{
-				c++;
-			}
-		}
-		if (c == (size - 1))
-		{
-			continusrows++;
+			independentnums += (size * size - 1 - size) * ((factorial((size * size) - a - 1)) / 2);
 		}
 	}
 }
-void puzzlesolve::checkcontinuscolomns()
+
+
+unsigned long long puzzlesolve::factorial(unsigned long long A)
 {
-	for (size_t j = 0; j < size; j++)
-	{
-		int c = 0;
-		for (size_t i = 0; i < (size - 1); i++)
-		{
-			if ((myvector[(j * size) + i] + 1) == myvector[(j * size) + i + 1])
-			{
-				c++;
-			}
+	unsigned long long B = 1, i = 2;
+		for (; i <= A; i++) {
+			B = B * i;
 		}
-		if (c == (size - 1))
+		return B;	
+}
+
+void puzzlesolve::possiblecontiniusrows()
+{
+	for (unsigned long long i = 0; i < ((size * size) - (size - 1)); i++)
+	{	
+		if (myvector[i] + (size - 1) == myvector[i + (size - 1)])
 		{
-			continusrows++;
+			continusrows += (size - 1) * ((factorial(((size * size) - size) - 1))/2);
 		}
 	}
-}
-void puzzlesolve::checkRevcontinusrows()
-{
-	for (size_t j = 0; j < size; j++)
-	{
-		int c = 0;
-		for (size_t i = 0; i < (size - 1); i++)
-		{
-			if ((myvector[(j * size) + i]) == myvector[(j * size) + i + 1] + 1)
-			{
-				c++;
-			}
-		}
-		if (c == (size - 1))
-		{
-			revcontinusrows++;
-		}
-	}
-}
-void puzzlesolve::checkRevcontinuscolomns()
-{
-
-}
-
-void puzzlesolve::chekifturn()
-{
-
 }
 
 void puzzlesolve::solve()
 {
+	unsigned long long percentdone = 0;
 	ifstream Myfile("text.txt");
+	ofstream SolFile("solution.txt");
 	Myfile >> cop;
-	for (int i = 0; i < (size * size); i++) {
-		int input;
-		Myfile >> input; // puting everything in to a vector
-		myvector.push_back(input);
-	}
-	Myfile.close();
+	for (unsigned long long i = 0; i < (size * size); i++)	myvector.push_back(0);
 
-	print();
-	
-	int t = 0;
-	for (size_t j = 0; j < 11; j++)
+
+	for (size_t i = 0; i < cop; i++)
 	{
-		for (int i = 0; i < 7; i++)
-		{
-			for (int i = 0; i < 3; i++)
-			{
-				circle(1);
-				checkerofparts();
-			}
-			circle(2);
-		}
-		circle(3);
-	}
-	
-	
-	cout << "Continius rows :" << continusrows << endl;
-	cout << "All Combinations :" << combin << endl;
-	cout << "New comb :"<<newcombin << endl;
+		cout << "Puzzle number: " << i + 1 << endl << endl;
+		SolFile << "Puzzle number: " << i + 1 << endl << endl;
+		for (unsigned long long i = 0; i < (size * size); i++)	Myfile >> myvector[i];
+		print();
 
+		for (unsigned long long i = 0; i < (size * size); i++) {
+			SolFile << myvector[i] << " ";
+			if ((((i + 2) % size) == true)) SolFile << endl;
+		}
+
+
+		sort(myvector.begin(), myvector.end() - 1);
+
+		possiblecontiniusrows();
+		cout << "Continius rows :" << continusrows << endl;
+		SolFile << "Continius rows :" << continusrows << endl;
+		for (size_t i = 2; i < size; i++)
+		{
+			independentcontnum(i);
+			cout << i << " : " << independentnums << endl;
+			SolFile << i << " : " << independentnums << endl;
+			independentnums = 0;
+		}
+		
+		cout << endl;
+		SolFile << endl;
+		continusrows = 0;
+	}
+
+	Myfile.close();
 }
 
 

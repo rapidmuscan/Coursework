@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>H:\Gt\Coursework\Coursework\Coursework\</FILEPATH>
+      <FILENAME>puzzlesolve.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>13</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'puzzlesolve::cop' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>puzzlesolve::{ctor}</FUNCTION>
+    <DECORATED>??0puzzlesolve@@QEAA@_K@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>puzzlesolve::cop</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

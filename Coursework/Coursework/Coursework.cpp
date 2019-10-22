@@ -10,9 +10,9 @@ using namespace std;
 
 int main()
 {
-	int size =4;
-	int cop = 1;
-	int max = 20;
+	unsigned long long size =5;
+	unsigned long long cop = 4;
+	unsigned long long max = 26;
 	/*cout << "Hello this is a puzzle game. Enter size n*n you prefere:";
 	cin >> size;
 	cout << "Enter how many copies of a puzzle you prefere:";
@@ -21,14 +21,10 @@ int main()
 	cin >> max;*/
 
 	puzzleGen obj(size,cop,max);
-	obj.ManualInput();
+	obj.Generator();
 
 	puzzlesolve obk(size);
 	obk.solve();
-
-
-	
-
 	
 	return 0;
 }
