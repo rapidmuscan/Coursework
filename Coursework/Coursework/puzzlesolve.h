@@ -18,7 +18,15 @@ private:
 	void circle(int number);
 	void checkerofparts();
 	void refresh();
-	void refresh2();
+	void chekifturn();
+	void checkcontinusrows();
+	void checkcontinuscolomns();
+	void checkRevcontinusrows();
+	void checkRevcontinuscolomns();
+	unsigned int continusrows;
+	unsigned int revcontinusrows;
+	unsigned int continuscol;
+	unsigned int revcontinuscol;
 	unsigned int cop;
 	unsigned int size;
 	unsigned int position;

@@ -74,10 +74,12 @@ void puzzleGen::ManualInput()
 				}
 				if (m == 0) chek = 1;
 			}
-			Genvector[(size * size) - 1] = 0;
+			
 			MyFile << Genvector[i] << " ";
 			if ((((i + 2) % size) == true)) MyFile << endl;
 		}
+		Genvector[(size * size) - 1] = 0;
+		MyFile << Genvector[(size * size) - 1];
 		MyFile << endl;
 		MyFile << endl;
 	}

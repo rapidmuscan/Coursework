@@ -12,8 +12,12 @@ puzzlesolve::puzzlesolve(int a)
 {
 	size = a;
 	position = (size * size) - 1;
-	combin = 10395;
+	combin = 0;
 	newcombin = 0;
+	continusrows = 0;
+	revcontinusrows = 0;
+	continuscol = 0;
+	revcontinuscol = 0;
 }
 
 void puzzlesolve::print()
@@ -121,6 +125,7 @@ void puzzlesolve::checkerofparts()
 		MyFile.close();
 		combin++;
 		newcombin++;
+		checkcontinusrows();
 	}
 	
 }
@@ -136,41 +141,70 @@ void puzzlesolve::refresh()
 	for (int i = 0; i < size - 1; i++)down();
 	for (int i = 0; i < size - 1; i++)right();
 }
-void puzzlesolve::refresh2()
+
+void puzzlesolve::checkcontinusrows()
 {
-	for (int i = 0; i < 3; i++) {
-		left();
-	}
-	for (int i = 0; i < 3; i++) {
-		up();
-	}
-	for (int i = 0; i < 3; i++) {
-		right();
-	}
-	for (int i = 0; i < 2; i++) {
-		down();
-	}
-	for (int i = 0; i < 2; i++) {
-		left();
-	}
-	up();
-	right();
-	down();
-	for (int i = 0; i < 2; i++) {
-		left();
-	}
-	for (int i = 0; i < 2; i++) {
-		up();
-	}
-	for (int i = 0; i < 3; i++) {
-		right();
-	}
-	for (int i = 0; i < 3; i++) {
-		down();
+	for (size_t j = 0; j < size; j++)
+	{
+		int c = 0;
+		for (size_t i = 0; i < (size - 1); i++)
+		{
+			if ((myvector[(j * size) + i] + 1) == myvector[(j * size) + i + 1]) 
+			{
+				c++;
+			}
+		}
+		if (c == (size - 1))
+		{
+			continusrows++;
+		}
 	}
 }
+void puzzlesolve::checkcontinuscolomns()
+{
+	for (size_t j = 0; j < size; j++)
+	{
+		int c = 0;
+		for (size_t i = 0; i < (size - 1); i++)
+		{
+			if ((myvector[(j * size) + i] + 1) == myvector[(j * size) + i + 1])
+			{
+				c++;
+			}
+		}
+		if (c == (size - 1))
+		{
+			continusrows++;
+		}
+	}
+}
+void puzzlesolve::checkRevcontinusrows()
+{
+	for (size_t j = 0; j < size; j++)
+	{
+		int c = 0;
+		for (size_t i = 0; i < (size - 1); i++)
+		{
+			if ((myvector[(j * size) + i]) == myvector[(j * size) + i + 1] + 1)
+			{
+				c++;
+			}
+		}
+		if (c == (size - 1))
+		{
+			revcontinusrows++;
+		}
+	}
+}
+void puzzlesolve::checkRevcontinuscolomns()
+{
 
+}
 
+void puzzlesolve::chekifturn()
+{
+
+}
 
 void puzzlesolve::solve()
 {
@@ -186,50 +220,24 @@ void puzzlesolve::solve()
 	print();
 	
 	int t = 0;
-
-
-	//for (size_t i = 0; i < 7; i++)
-	//{
-	//	for (size_t j = 0; j < 3; j++)
-	//	{
-	//		circle(1);
-	//		checkerofparts();
-	//		print();
-	//		t++;
-	//	}
-	//	circle(2);
-	//	print();
-	//}
-	
-	
-	
-	for (size_t l = 0; l < 5; l++) {
-		for (size_t f = 0; f < 15; f++)
+	for (size_t j = 0; j < 11; j++)
+	{
+		for (int i = 0; i < 7; i++)
 		{
-			for (size_t k = 0; k < 11; k++)
+			for (int i = 0; i < 3; i++)
 			{
-				for (size_t i = 0; i < 7; i++)
-				{
-					for (size_t j = 0; j < 3; j++)
-					{
-						circle(1);
-						checkerofparts();
-						t++;
-					}
-					circle(2);
-					print();
-				}
-				circle(3);
-				print();
+				circle(1);
+				checkerofparts();
 			}
-			refresh();
-			print();
-
+			circle(2);
 		}
-		refresh2();
+		circle(3);
 	}
-	cout << "All Combinations" << combin << endl;
-	cout << "New comb"<<newcombin << endl;
+	
+	
+	cout << "Continius rows :" << continusrows << endl;
+	cout << "All Combinations :" << combin << endl;
+	cout << "New comb :"<<newcombin << endl;
 
 }
 
