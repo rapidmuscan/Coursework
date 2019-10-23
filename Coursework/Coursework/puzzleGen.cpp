@@ -91,6 +91,7 @@ void puzzleGen::ManualInput()
 		MyFile << endl;
 	}
 	MyFile.close();
+	
 }
 
 

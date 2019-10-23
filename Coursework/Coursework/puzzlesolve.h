@@ -1,6 +1,7 @@
 #ifndef PUZZLESOLVE_H
 #define PUZZLESOLVE_H
 #include <vector>
+#include "InfInt.h"
 using namespace std;
 class puzzlesolve
 {
@@ -12,13 +13,13 @@ public:
 protected:
 private:
 	void checkcontinusrows();
-	unsigned long long continusrows;
+	InfInt continusrows;
 	unsigned long long cop;
 	unsigned long long size;
 	void possiblecontiniusrows();
 	void independentcontnum(int a);
-	unsigned long long independentnums;
-	unsigned long long factorial(unsigned long long A);
+	InfInt independentnums;
+	InfInt factorial(InfInt A);
 	vector<unsigned int> myvector;
 };
 

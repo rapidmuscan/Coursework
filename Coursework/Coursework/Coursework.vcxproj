@@ -156,6 +156,7 @@
     <ClCompile Include="puzzlesolve.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="InfInt.h" />
     <ClInclude Include="puzzleGen.h" />
     <ClInclude Include="puzzlesolve.h" />
   </ItemGroup>

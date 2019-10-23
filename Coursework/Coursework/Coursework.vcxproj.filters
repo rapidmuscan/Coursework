@@ -32,5 +32,8 @@
     <ClInclude Include="puzzleGen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="InfInt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

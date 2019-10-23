@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <time.h>
 #include "puzzlesolve.h"
+#include "InfInt.h"
+using namespace std;
 
 
 
@@ -47,19 +49,21 @@ void puzzlesolve::printfromfile()
 
 void puzzlesolve::independentcontnum(int a)
 {
+	InfInt _size = size;
+	
 	for (unsigned long long i = 0; i < ((size * size) - (a - 1)); i++)
 	{
 		if (myvector[i] + (a - 1) == myvector[i + (a - 1)])
 		{
-			independentnums += (size * size - 1 - size) * ((factorial((size * size) - a - 1)) / 2);
+			independentnums += (_size * _size - 1 - _size) * ((factorial((_size * _size) - a - 1)) / 2);
 		}
 	}
 }
 
 
-unsigned long long puzzlesolve::factorial(unsigned long long A)
+InfInt puzzlesolve::factorial(InfInt A)
 {
-	unsigned long long B = 1, i = 2;
+	InfInt B = 1,i = 2;
 		for (; i <= A; i++) {
 			B = B * i;
 		}
@@ -68,11 +72,16 @@ unsigned long long puzzlesolve::factorial(unsigned long long A)
 
 void puzzlesolve::possiblecontiniusrows()
 {
+	InfInt _size = size;
+	
 	for (unsigned long long i = 0; i < ((size * size) - (size - 1)); i++)
-	{	
+	{
+		InfInt percent = i / ((size * size) * 100);
+		system("cls");
+		cout << i << "%" << endl;
 		if (myvector[i] + (size - 1) == myvector[i + (size - 1)])
 		{
-			continusrows += (size - 1) * ((factorial(((size * size) - size) - 1))/2);
+			continusrows += (_size - 1) * ((factorial(((_size * _size) - _size) - 1))/2);
 		}
 	}
 }
@@ -104,17 +113,17 @@ void puzzlesolve::solve()
 		possiblecontiniusrows();
 		cout << "Continius rows :" << continusrows << endl;
 		SolFile << "Continius rows :" << continusrows << endl;
-		for (size_t i = 2; i < size; i++)
+		/*for (size_t i = 2; i < size; i++)
 		{
 			independentcontnum(i);
 			cout << i << " : " << independentnums << endl;
 			SolFile << i << " : " << independentnums << endl;
-			independentnums = 0;
-		}
+			independentnums *= 0;
+		}*/
 		
 		cout << endl;
 		SolFile << endl;
-		continusrows = 0;
+		continusrows *= 0;
 	}
 
 	Myfile.close();
