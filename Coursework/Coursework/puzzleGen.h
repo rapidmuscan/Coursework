@@ -1,3 +1,4 @@
+//Alexander  Sablin aslablino@yandex.ru
 #ifndef PUZZLEGEN_H
 #define PUZZLEGEN_H
 

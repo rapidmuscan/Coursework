@@ -1,3 +1,4 @@
+//Alexander  Sablin aslablino@yandex.ru
 #ifndef PUZZLESOLVE_H
 #define PUZZLESOLVE_H
 #include <vector>
@@ -12,7 +13,7 @@ public:
 	void solve();
 protected:
 private:
-	void checkcontinusrows();
+	
 	InfInt continusrows;
 	unsigned long long cop;
 	unsigned long long size;

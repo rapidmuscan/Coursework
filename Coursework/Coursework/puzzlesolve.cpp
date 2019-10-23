@@ -1,9 +1,11 @@
+//Alexander  Sablin aslablino@yandex.ru
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <time.h>
+#include <thread>
 #include "puzzlesolve.h"
 #include "InfInt.h"
 using namespace std;
@@ -76,9 +78,6 @@ void puzzlesolve::possiblecontiniusrows()
 	
 	for (unsigned long long i = 0; i < ((size * size) - (size - 1)); i++)
 	{
-		InfInt percent = i / ((size * size) * 100);
-		system("cls");
-		cout << i << "%" << endl;
 		if (myvector[i] + (size - 1) == myvector[i + (size - 1)])
 		{
 			continusrows += (_size - 1) * ((factorial(((_size * _size) - _size) - 1))/2);
@@ -94,7 +93,6 @@ void puzzlesolve::solve()
 	Myfile >> cop;
 	for (unsigned long long i = 0; i < (size * size); i++)	myvector.push_back(0);
 
-
 	for (size_t i = 0; i < cop; i++)
 	{
 		cout << "Puzzle number: " << i + 1 << endl << endl;
@@ -106,20 +104,19 @@ void puzzlesolve::solve()
 			SolFile << myvector[i] << " ";
 			if ((((i + 2) % size) == true)) SolFile << endl;
 		}
-
-
+		
 		sort(myvector.begin(), myvector.end() - 1);
-
 		possiblecontiniusrows();
+		
 		cout << "Continius rows :" << continusrows << endl;
 		SolFile << "Continius rows :" << continusrows << endl;
-		/*for (size_t i = 2; i < size; i++)
-		{
+		
+		for (size_t i = 2; i < size; i++) {
 			independentcontnum(i);
 			cout << i << " : " << independentnums << endl;
 			SolFile << i << " : " << independentnums << endl;
 			independentnums *= 0;
-		}*/
+		}
 		
 		cout << endl;
 		SolFile << endl;
