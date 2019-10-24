@@ -13,15 +13,18 @@ public:
 	void solve();
 protected:
 private:
-	
+	void presentindcontnumrow(int a);
+	void presentindcontnumcol(int a);
 	InfInt continusrows;
 	unsigned long long cop;
 	unsigned long long size;
 	void possiblecontiniusrows();
 	void independentcontnum(int a);
+	InfInt presentcontnums;
 	InfInt independentnums;
 	InfInt factorial(InfInt A);
-	vector<unsigned int> myvector;
+	vector<int> myvector;
+	vector<int> secvector;
 };
 
 #endif // !PUZZLESOLVE_H

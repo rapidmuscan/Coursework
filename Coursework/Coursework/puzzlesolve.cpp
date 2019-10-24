@@ -16,6 +16,7 @@ puzzlesolve::puzzlesolve(unsigned long long a)
 {
 	size = a;	
 	continusrows = 0;
+	presentcontnums = 0;
 }
 
 void puzzlesolve::print()
@@ -85,6 +86,88 @@ void puzzlesolve::possiblecontiniusrows()
 	}
 }
 
+
+void puzzlesolve::presentindcontnumrow(int a)
+{
+
+	InfInt _size = size;
+
+	for (int row = 0; row < size; ++row)
+	{
+		
+		for (int col = 0; col < size - (a - 1); ++col)
+		{
+			unsigned long long ch = 0;
+			unsigned long long mh = 0;
+			for (size_t i = 1; i < a; i++)
+			{
+				int pos = col + row * size;
+				//int nextPos = pos + 1;
+
+				if (secvector[pos] + i == secvector[pos + i])
+				{
+					ch++;
+				}
+				if (secvector[pos] == secvector[pos + i] + i)
+				{
+					mh++;
+				}
+
+				if (ch == (a - 1))
+				{
+					presentcontnums += 1;
+				}
+				if (mh == (a - 1))
+				{
+					presentcontnums += 1;
+				}
+			}
+			
+		}
+	}
+}
+
+void puzzlesolve::presentindcontnumcol(int a)
+{
+
+	InfInt _size = size;
+
+	for (int row = 0; row < size - (a - 1); ++row)
+	{
+
+		for (int col = 0; col < size; ++col)
+		{
+			unsigned long long ch = 0;
+			unsigned long long mh = 0;
+			for (size_t i = 1; i < a; i++)
+			{
+				int pos = col + row * size;
+				//int nextPos = pos + 1;
+
+				if (secvector[pos] + i == secvector[pos + (size * i)])
+				{
+					ch++;
+				}
+				if (secvector[pos] == secvector[pos +(size*i)] + i)
+				{
+					mh++;
+				}
+
+				if (ch == (a - 1))
+				{
+					presentcontnums += 1;
+				}
+				if (mh == (a - 1))
+				{
+					presentcontnums += 1;
+				}
+			}
+
+		}
+	}
+}
+
+
 void puzzlesolve::solve()
 {
 	unsigned long long percentdone = 0;
@@ -92,12 +175,27 @@ void puzzlesolve::solve()
 	ofstream SolFile("solution.txt");
 	Myfile >> cop;
 	for (unsigned long long i = 0; i < (size * size); i++)	myvector.push_back(0);
-
+	for (unsigned long long i = 0; i < (size * size); i++)	secvector.push_back(0);
 	for (size_t i = 0; i < cop; i++)
 	{
 		cout << "Puzzle number: " << i + 1 << endl << endl;
 		SolFile << "Puzzle number: " << i + 1 << endl << endl;
-		for (unsigned long long i = 0; i < (size * size); i++)	Myfile >> myvector[i];
+		for (unsigned long long i = 0; i < ((size * size) - 1); i++) {
+			Myfile >> myvector[i];
+			if (myvector[i] <= 0) 
+			{
+				cout << "Your file is invalid goodbuy))" << endl;
+				exit(0);
+			}
+		}
+		Myfile >> myvector[(size * size)-1];
+		myvector[(size * size)-1] = 0;
+
+		for (size_t i = 0; i < (size * size) - 1; i++)
+		{
+			secvector[i] = myvector[i];
+		}
+		
 		print();
 
 		for (unsigned long long i = 0; i < (size * size); i++) {
@@ -105,11 +203,40 @@ void puzzlesolve::solve()
 			if ((((i + 2) % size) == true)) SolFile << endl;
 		}
 		
+
+
+
+		
+
+
 		sort(myvector.begin(), myvector.end() - 1);
 		possiblecontiniusrows();
 		
-		cout << "Continius rows :" << continusrows << endl;
-		SolFile << "Continius rows :" << continusrows << endl;
+		cout << "Continius rows: " << continusrows  << endl;
+		SolFile << "Continius rows: " << continusrows << endl;
+		cout << "Continius coloms: " << continusrows  << endl;
+		SolFile << "Continius colomns: " << continusrows  << endl;
+		cout << "Continius rev rows: " << continusrows << endl;
+		SolFile << "Continius rev rows: " << continusrows << endl;
+		cout << "Continius rev colomns :" << continusrows  << endl;
+		SolFile << "Continius rev colomns:" << continusrows  << endl;
+		
+
+		cout << "(total for row & column, including reverse, in this configuration)"  << endl;
+		SolFile << "(total for row & column, including reverse, in this configuration)" << endl;
+
+		for (size_t i = 2; i < size; i++) {
+			presentindcontnumrow(i);
+			presentindcontnumcol(i);
+			cout << i << " : " << presentcontnums << endl;
+			SolFile << i << " : " << presentcontnums << endl;
+			presentcontnums *= 0;
+		}
+
+		
+		
+		cout << "(total for row and column, including reverse, for all valid turns)" << endl;
+		SolFile << "(total for row and column, including reverse, for all valid turns)" << endl;
 		
 		for (size_t i = 2; i < size; i++) {
 			independentcontnum(i);

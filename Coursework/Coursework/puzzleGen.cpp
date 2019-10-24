@@ -74,9 +74,19 @@ void puzzleGen::ManualInput()
 			while (chek != 1)
 			{
 				int m = 0;
-				for (int j = 0; j < i; j++) {
-					if (Genvector[i] == Genvector[j]) {
-						cout << "Enter a value from 1 to " << maxval << "And do not repeat" << endl ;
+				if (Genvector[0] <= 0 || cin.fail())
+				{
+					cin.clear();
+					cin.ignore(256, '\n');
+					cout << "Enter int value from 1. And do not repeat!!!!!" << endl;
+					cin >> Genvector[0];
+					m++;
+				}
+				for (int j = 0; j < i ; j++) {
+					if (Genvector[i] == Genvector[j] || Genvector[i] <= 0 || cin.fail()) {
+						cin.clear();
+						cin.ignore(256, '\n');
+						cout << "Enter int value from 1. And do not repeat!!!!!" << endl ;
 						cin >> Genvector[i];
 						m++;
 					}

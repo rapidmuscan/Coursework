@@ -152,11 +152,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Coursework.cpp" />
+    <ClCompile Include="Launcher.cpp" />
     <ClCompile Include="puzzleGen.cpp" />
     <ClCompile Include="puzzlesolve.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InfInt.h" />
+    <ClInclude Include="Launcher.h" />
     <ClInclude Include="puzzleGen.h" />
     <ClInclude Include="puzzlesolve.h" />
   </ItemGroup>
