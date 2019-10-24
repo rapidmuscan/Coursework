@@ -11,6 +11,7 @@ public:
 	void printfromfile();
 	void print();
 	void solve();
+	
 protected:
 private:
 	void presentindcontnumrow(int a);

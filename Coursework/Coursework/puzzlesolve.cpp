@@ -50,6 +50,7 @@ void puzzlesolve::printfromfile()
 }
 
 
+
 void puzzlesolve::independentcontnum(int a)
 {
 	InfInt _size = size;
@@ -170,6 +171,7 @@ void puzzlesolve::presentindcontnumcol(int a)
 
 void puzzlesolve::solve()
 {
+	
 	unsigned long long percentdone = 0;
 	ifstream Myfile("text.txt");
 	ofstream SolFile("solution.txt");
@@ -202,12 +204,6 @@ void puzzlesolve::solve()
 			SolFile << myvector[i] << " ";
 			if ((((i + 2) % size) == true)) SolFile << endl;
 		}
-		
-
-
-
-		
-
 
 		sort(myvector.begin(), myvector.end() - 1);
 		possiblecontiniusrows();

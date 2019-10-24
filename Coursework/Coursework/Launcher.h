@@ -8,7 +8,8 @@ class Launcher
 {
 	public:
 		Launcher();
-		void Launch();
+		int Launch();
+		void printfromSolfile();
 	protected:
 	private:
 		

@@ -1,10 +1,10 @@
-﻿  puzzlesolve.cpp
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(26,6): warning C4805:  '==': unsafe mix of type 'unsigned __int64' and type 'bool' in operation
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(43,7): warning C4805:  '==': unsafe mix of type 'unsigned __int64' and type 'bool' in operation
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(104,13): warning C4244:  'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(144,13): warning C4244:  'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(203,7): warning C4805:  '==': unsafe mix of type 'unsigned __int64' and type 'bool' in operation
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(229,26): warning C4267:  'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(230,26): warning C4267:  'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\Gt\Coursework\Coursework\Coursework\puzzlesolve.cpp(242,24): warning C4267:  'argument': conversion from 'size_t' to 'int', possible loss of data
-  Coursework.vcxproj -> H:\Gt\Coursework\Coursework\x64\Debug\Coursework.exe
+﻿  Coursework.cpp
+  Launcher.cpp
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\Launcher.cpp(107,28): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\Launcher.cpp(107,23): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\Launcher.cpp(107,17): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\Launcher.cpp(122,28): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\Launcher.cpp(122,23): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
+  Создание кода...
+C:\Users\alsab\Documents\Coursework\Coursework\Coursework\Launcher.cpp(122,17): warning C4244: аргумент: преобразование "unsigned __int64" в "int", возможна потеря данных
+  Coursework.vcxproj -> C:\Users\alsab\Documents\Coursework\Coursework\x64\Debug\Coursework.exe

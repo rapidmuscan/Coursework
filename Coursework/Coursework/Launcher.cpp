@@ -16,8 +16,48 @@ Launcher::Launcher() {
 
 }
 
-void Launcher::Launch()
+void Launcher::printfromSolfile()
 {
+	string line;
+	ifstream myfile("solution.txt");
+	if (myfile.is_open())
+	{
+		while (!myfile.eof())
+		{
+			getline(myfile, line);
+			cout << line << endl;
+		}
+		myfile.close();
+	}
+	else
+		cout << " Unable to open file." << endl;
+	cout << line << endl << endl;
+
+	system("pause");
+}
+
+int Launcher::Launch()
+{
+	cout << "Do you want to print previus solution? If Yes print 1 or watever you want" << endl;
+
+
+	int c;
+	cin >> c;
+	switch (c)
+	{
+	case 1:
+		printfromSolfile();
+		break;
+	default:
+		return 0;
+		break;
+	}
+
+
+	
+
+
+	
 	unsigned long long size = 4;
 	unsigned long long cop = 4;
 	unsigned long long max = 5;
@@ -94,5 +134,18 @@ void Launcher::Launch()
 		break;
 	}
 	
+
+	cout << "Do you wish to start again? if yes press 1 if enter watever you want." << endl;
+	int a;
+	cin >> a;
+	switch (a)
+	{
+	case 1:
+		return Launch();
+		break;
+	default:
+		return 0;
+		break;
+	}
 
 }
